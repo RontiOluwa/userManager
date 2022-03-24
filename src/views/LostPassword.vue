@@ -1,20 +1,31 @@
 <template>
-  <div class="container">
-    <p>Lost Password In Route</p>
-    <div v-if="route.query.code && route.query.email == undefined">
+  <div>
+    <Header label="Lost Password Route" />
+    <div
+      class="max-w-md m-auto border-2 p-6 mt-11"
+      v-if="route.query.code && route.query.email == undefined"
+    >
       <Input label="Enter Code" type="number" @changeValue="getCode" />
       <Button text="Submit" @submit="compareCode" />
     </div>
-    <div v-else-if="route.query.email == undefined">
+    <div
+      class="max-w-md m-auto border-2 p-6 mt-11"
+      v-else-if="route.query.email == undefined"
+    >
       <Input label="Email Address" type="email" @changeValue="getEmail" />
       <Button text="Submit" @submit="sendCode" />
     </div>
-    <div v-else-if="route.query.email">
-      <Link :to="`/lost-password?code=${random}`">Click to Enter Code</Link>
+    <div
+      class="max-w-md m-auto border-2 p-6 mt-11"
+      v-else-if="route.query.email"
+    >
+      <Link :to="`/lost-password?code=${random}`">Click to Get OTP Code</Link>
     </div>
     <br />
     <br />
-    <Link to="/sign-in">Click to Sign In</Link>
+    <div class="max-w-md m-auto">
+      <Link to="/sign-in">Click to Sign In</Link>
+    </div>
   </div>
 </template>
 
@@ -24,10 +35,11 @@ import Link from "../components/Link.vue";
 import Input from "../components/Input.vue";
 import Button from "../components/Button.vue";
 import { useRouter, useRoute } from "vue-router";
+import Header from "../components/Header.vue";
 
 export default defineComponent({
   name: "LostPassword",
-  components: { Link, Input, Button },
+  components: { Link, Input, Button, Header },
   setup() {
     var email: string;
     var code: string;

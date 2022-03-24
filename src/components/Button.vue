@@ -1,7 +1,12 @@
 <template>
   <div>
     <br />
-    <button @click="$emit('submit')">{{ text }}</button>
+    <button
+      class="bg-black max-w-sm p-3 w-full text-white"
+      @click="$emit('submit')"
+    >
+      {{ text }}
+    </button>
   </div>
 </template>
 

@@ -1,14 +1,16 @@
 <template>
   <div>
-    <p>Sign Up Route</p>
-    <div>
+    <Header label="Sign Up Route" />
+    <div class="max-w-md m-auto border-2 p-6 mt-11">
       <Input label="Username" type="text" value="" @changeValue="getUsername" />
       <Input label="Email Address" type="email" @changeValue="getEmail" />
       <Input label="Password" type="password" @changeValue="getPassword" />
       <Error :mssg="errorMssg" v-show="error" />
+      <div class="mt-11">
+        <Link to="/sign-in" class="text-right">Click to Login</Link>
+      </div>
       <Button text="Sign Up" @submit="signUp" />
     </div>
-    <Link to="/sign-in">Click to Login</Link>
   </div>
 </template>
 
@@ -20,10 +22,11 @@ import Input from "../components/Input.vue";
 import Button from "../components/Button.vue";
 import Error from "../components/Error.vue";
 import User from "../types/Users";
+import Header from "../components/Header.vue";
 
 export default defineComponent({
   name: "SignUp",
-  components: { Link, Input, Button, Error },
+  components: { Link, Input, Button, Error, Header },
   setup() {
     const router = useRouter();
 

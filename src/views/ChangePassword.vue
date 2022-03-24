@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p>Old Password Route</p>
-    <div>
+    <Header label="Confirm Password" />
+    <div class="max-w-md m-auto border-2 p-6 mt-11">
       <Input
         label="Old Password"
         type="password"
@@ -19,8 +19,8 @@
       />
       <Button text="Submit" @submit="changePassword" />
       <Error :mssg="errorMssg" v-show="error" />
+      <Link to="/profile" class="mt-6">Clcik to view Profile</Link>
     </div>
-    <Link to="/profile">Profile</Link>
   </div>
 </template>
 
@@ -30,11 +30,11 @@ import Link from "../components/Link.vue";
 import Input from "../components/Input.vue";
 import { useRouter } from "vue-router";
 import Button from "../components/Button.vue";
-import Error from "../components/Error.vue";
+import Header from "../components/Header.vue";
 
 export default defineComponent({
   name: "ChangePassword",
-  components: { Link, Input, Button },
+  components: { Link, Input, Button, Header },
   setup() {
     var oldPassword: string;
     var newpassword: string;

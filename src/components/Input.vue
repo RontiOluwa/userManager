@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="w-full p-3">
     <label>{{ label }}</label
     ><br />
     <input
+      class="p-3 w-full mt-3 border-2"
       :type="type"
       :id="id"
       @change="$emit('changeValue', $event.target.value)"

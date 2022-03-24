@@ -1,14 +1,16 @@
 <template>
-  <div class="bg-gradient-to-t">
-    <p>Sign In Route</p>
-    <div>
+  <div>
+    <Header label="Sign In Route" />
+    <div class="max-w-md m-auto border-2 p-6 mt-11">
       <Input label="Email Address" type="email" @changeValue="getEmail" />
       <Input label="Password" type="password" @changeValue="getPassword" />
       <Error :mssg="errorMssg" v-show="error" />
+      <div class="flex mt-11">
+        <Link to="/lost-password" class="w-1/2">Forgot Pasword?</Link>
+        <Link to="/sign-up" class="w-1/2 text-right">Click to Sign Up</Link>
+      </div>
       <Button text="Sign In" @submit="signIn" />
     </div>
-    <Link to="/lost-password">Forgot Pasword?</Link>
-    <Link to="/sign-up">Click to Sign Up</Link>
   </div>
 </template>
 
@@ -19,10 +21,11 @@ import Input from "../components/Input.vue";
 import Button from "../components/Button.vue";
 import Error from "../components/Error.vue";
 import { useRouter } from "vue-router";
+import Header from "../components/Header.vue";
 
 export default defineComponent({
   name: "SignIn",
-  components: { Link, Input, Button, Error },
+  components: { Link, Input, Button, Error, Header },
   setup() {
     var email: string;
     var password: string;

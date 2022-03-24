@@ -1,9 +1,11 @@
 <template>
   <div>
-    <p>Home Route</p>
+    <Header label="Home Route" />
     <ul>
       <li>
-        <Link to="/sign-up">Sign Up</Link>
+        <Link to="/sign-up" class="border-current">Sign Up</Link>
+      </li>
+      <li>
         <Link to="/sign-in">Sign In</Link>
       </li>
     </ul>
@@ -13,9 +15,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Link from "../components/Link.vue";
+import Header from "../components/Header.vue";
 
 export default defineComponent({
   name: "Home",
-  components: { Link },
+  components: { Link, Header },
 });
 </script>
