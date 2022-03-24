@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-gradient-to-t">
     <p>Sign In Route</p>
     <div>
       <Input label="Email Address" type="email" @changeValue="getEmail" />

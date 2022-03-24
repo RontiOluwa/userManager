@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <p>Lost Password In Route</p>
     <div v-if="route.query.code && route.query.email == undefined">
       <Input label="Enter Code" type="number" @changeValue="getCode" />
